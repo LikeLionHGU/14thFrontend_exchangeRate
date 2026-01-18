@@ -27,7 +27,8 @@ function List() {
           <h2>환율 리스트</h2>
           {exchange.map((exchange) => (
             <div className="list" key={exchange.ITEM_CODE1}>
-              <p>{exchange?.DATA_VALUE}{exchange?.ITEM_NAME1}</p>
+              <p>{exchange?.DATA_VALUE}원</p>
+              <p>{exchange?.ITEM_NAME1}</p>
             </div>
             
           ))}

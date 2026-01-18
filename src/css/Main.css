@@ -4,3 +4,14 @@
 .div-right{
     float:right;
 }
+
+
+.list {
+    text-align: center;
+
+    width: 100px;
+    height: 120px;
+
+    border: 3px solid navy;
+    border-radius: 5%;
+}
