@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import "../css/Main.css";
 
 function List() {
+  const today = new Date();
+  const todayDate = `${today.getFullYear()}${(today.getMonth() + 1).toString().padStart(2, '0')}${today.getDate()}`;
+
   const [loading, setLoading] = useState(true);
   const [exchange, setExchange] = useState([]);
   const getExchange = async () => {
