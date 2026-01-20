@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "../css/Main.css";
-import styles from "../css/List.css";
+import styles from "../css/List.module.css";
 
 function List() {
   const today = new Date();
