@@ -32,19 +32,16 @@ html,
 body {
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 .Msub-div {
     width: 100%;
     height: auto;
-    display: flex;
     text-align: center;
     margin-top: 30px;
 }
 
-.sub-div {
-    width: 50%;
-}
 
 form {
     padding: 0 16px;

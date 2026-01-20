@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "../css/Main.css";
+import styles from "../css/List.css";
 
 function List() {
   const today = new Date();
@@ -20,25 +21,27 @@ function List() {
     getExchange();
   }, []);
   console.log(exchange);
-  
+
   return (
     <div>
       {loading ? (
         <h1>loading</h1>
       ) : (
-        <div>
-          <h2>환율 리스트</h2>
-          {exchange.map((exchange) => (
-            <div className="list" key={exchange.ITEM_CODE1}>
-              <p>{exchange?.DATA_VALUE}원</p>
-              <p>{exchange?.ITEM_NAME1}</p>
-            </div>
-            
-          ))}
+        <div className={styles.list}>
+          <h1>환율 리스트</h1>
+          <div className={styles.exchangeListMain}>
+            {exchange.map((exchange) => (
+              <div className={styles.exchangeListBox} key={exchange.ITEM_CODE1}>
+                <h2>{exchange?.DATA_VALUE}원</h2>
+                <p>{exchange?.ITEM_NAME1}</p>
+              </div>
+            ))}
+          </div>
+
         </div>
       )}
     </div>
-    
+
   );
 }
 

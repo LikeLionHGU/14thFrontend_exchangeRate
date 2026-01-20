@@ -22,12 +22,8 @@ function Submain() {
     }, []);
     return (
         <div className="Msub-div">
-            <div className="sub-div">
-                <Calculator />
-            </div>
-            <div className="sub-div">
-                <List />
-            </div>
+            <Calculator />
+            <List />
         </div>
     );
 }
