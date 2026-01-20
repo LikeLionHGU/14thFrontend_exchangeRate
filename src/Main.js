@@ -5,8 +5,10 @@ import "./css/Main.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+import Test from "./Test";
+
 function Main() {
-    const [logined, setLogined] = useState(true);
+    const [logined, setLogined] = useState(false);
     const [user, setUser] = useState(null);
 
     useEffect(() => {
@@ -48,15 +50,17 @@ function Main() {
             </div>
 
             <div className="right">
+                
                 {!logined ? (
                     <LoginPage />
                 ) : !user ? (
                     <h1>이게문제</h1>
                 ) : (
-                    <LoginedPage
-                        username={user.name}
-                        picture={user.picture}
-                    />
+                    <Test/>
+                    // <LoginedPage
+                    //     username={user.name}
+                    //     picture={user.picture}
+                    // />
                 )}
             </div>
         </div>
