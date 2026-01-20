@@ -26,7 +26,7 @@ function List() {
         <h1>loading</h1>
       ) : (
         <div className="list">
-          <h2>환율 리스트</h2>
+          <h1>환율 리스트</h1>
           <div className="exchangeListMain">
             {exchange.map((exchange) => (
             <div className="exchangeListBox" key={exchange.ITEM_CODE1}>

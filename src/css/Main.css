@@ -16,8 +16,8 @@
 .exchangeListMain{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  column-gap: 10px;
-  row-gap: 10px;
+  column-gap: 15px;
+  row-gap: 15px;
 
   padding: 25px;
 
@@ -27,8 +27,8 @@
   text-align: center;
   color: navy;
 
-  width: 25%px;
-  height: 120px;
+  width: auto;
+  height: auto;
 
   background-color: white;
 
@@ -44,4 +44,9 @@
   }
 }
 
+
+.exchangeListBox:hover{
+  transform: scale(1.1);
+  transition: all 0.3s ease-in;
+}
 
