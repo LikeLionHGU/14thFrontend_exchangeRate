@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../css/Main.css";
+import styles from "../css/List.module.css";
 
 function List() {
   const today = new Date();
@@ -25,11 +25,11 @@ function List() {
       {loading ? (
         <h1>loading</h1>
       ) : (
-        <div className="list">
+        <div className={styles.list}>
           <h1>환율 리스트</h1>
-          <div className="exchangeListMain">
+          <div className={styles.exchangeListMain}>
             {exchange.map((exchange) => (
-            <div className="exchangeListBox" key={exchange.ITEM_CODE1}>
+            <div className={styles.exchangeListBox} key={exchange.ITEM_CODE1}>
               <h2>{exchange?.DATA_VALUE}원</h2>
               <p>{exchange?.ITEM_NAME1}</p>
             </div>
