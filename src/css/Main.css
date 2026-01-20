@@ -1,7 +1,6 @@
-.div-left{
+.div-left {
   /*float: left;*/
 }
-
 
 .list {
   background-color: navy;
@@ -10,17 +9,15 @@
   text-align: center;
 
   padding-top: 25px;
-
 }
 
-.exchangeListMain{
+.exchangeListMain {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  column-gap: 15px;
+  column-gap: 20px;
   row-gap: 15px;
 
-  padding: 25px;
-
+  padding: 50px;
 }
 
 .exchangeListBox {
@@ -28,25 +25,24 @@
   color: navy;
 
   width: auto;
-  height: auto;
+  height: 200px;
 
   background-color: white;
 
   border: 3px solid navy;
   border-radius: 5%;
 
-  h2{
+  h2 {
+    margin-top: 15%;
     height: 30px;
   }
 
-  p{
-    font-size: 13px;
+  p {
+    font-size: 25px;
   }
 }
 
-
-.exchangeListBox:hover{
+.exchangeListBox:hover {
   transform: scale(1.1);
-  transition: all 0.3s ease-in;
+  transition: all 0.2s ease-in;
 }
-
