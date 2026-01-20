@@ -41,7 +41,24 @@ function List() {
                 key={todayExchange.ITEM_CODE1}
               >
                 <h2>{parseFloat(todayExchange.DATA_VALUE)}원</h2>
-                <h3>전날 대비 {(parseFloat(todayExchange.DATA_VALUE - yesterdayExchange[index].DATA_VALUE)).toFixed(1)}원</h3>
+
+                {parseFloat(todayExchange.DATA_VALUE - yesterdayExchange[index].DATA_VALUE,).toFixed(1) >= 0 ? (
+                  <h3 style={{color: "red"}}>
+                  {parseFloat(
+                    todayExchange.DATA_VALUE -
+                      yesterdayExchange[index].DATA_VALUE).toFixed(1)}
+                  원
+                </h3>
+                ) : (
+                  <h3 style={{color:"blue"}}>
+                  {parseFloat(
+                    todayExchange.DATA_VALUE -
+                      yesterdayExchange[index].DATA_VALUE).toFixed(1)}
+                  원
+                </h3>
+                )
+                }
+
                 <p>{todayExchange.ITEM_NAME1.slice(2)}</p>
               </div>
             ))}
