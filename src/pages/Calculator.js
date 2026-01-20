@@ -16,7 +16,7 @@ function Calculator() {
   const [direction, setDirection] = useState("KRW_TO_FOREIGN");
 
   // 환율 가져오기
-  /*useEffect(() => {
+  useEffect(() => {
     fetch(
       `https://ecos.bok.or.kr/api/StatisticSearch/GZOJK8A2NI5BBV6E0NIU/json/kr/1/1/${selectedCurrency.apiCode}/D/20260118/20260118`
     )
@@ -30,11 +30,14 @@ function Calculator() {
         console.log(error);
       });
   }, [selectedCurrency]);
-*/
+
+
+/*
 useEffect(() => {
-  // 임시 환율 (예: 1달러 = 1300원)
+  // 임시 환율 ( 1달러 = 1300원)
   setExchangeRate(1300);
 }, [selectedCurrency]);
+*/
 
   // 원화 입력
   const handleKrwChange = (event) => {
@@ -79,7 +82,7 @@ useEffect(() => {
 
   return (
     <div>
-      <h2>환율 계산기</h2>
+      <h1>환율 계산기</h1>
 
       <select onChange={handleCurrencyChange}>
         {currencyList.map((currency) => (
