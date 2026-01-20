@@ -32,13 +32,6 @@ function Calculator() {
   }, [selectedCurrency]);
 
 
-/*
-useEffect(() => {
-  // 임시 환율 ( 1달러 = 1300원)
-  setExchangeRate(1300);
-}, [selectedCurrency]);
-*/
-
   // 원화 입력
   const handleKrwChange = (event) => {
     const value = event.target.value;
@@ -82,7 +75,7 @@ useEffect(() => {
 
   return (
     <div>
-      <h1>환율 계산기</h1>
+      <h2>환율 계산기</h2>
 
       <select onChange={handleCurrencyChange}>
         {currencyList.map((currency) => (
