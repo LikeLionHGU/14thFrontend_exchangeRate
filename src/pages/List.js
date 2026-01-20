@@ -32,7 +32,7 @@ function List() {
             {exchange.map((exchange) => (
               <div className={styles.exchangeListBox} key={exchange.ITEM_CODE1}>
                 <h2>{exchange.DATA_VALUE}원</h2>
-                <p>{exchange.ITEM_NAME1}</p>
+                <p>{exchange.ITEM_NAME1.slice(2)}</p>
               </div>
             ))}
           </div>
