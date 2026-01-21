@@ -9,7 +9,10 @@ import GoogleLogin from "../components/loginPage";
 function Right() {
     const [logined, setLogined] = useState(false);
     const [data, setDatas] = useState(null);
-    const [user, setUser] = useState(null);
+    const [name, setName] = useState(null);
+    const [profile, setProfile] = useState(null);
+
+
 
 
     useEffect(() => {
@@ -18,14 +21,14 @@ function Right() {
 
         if (!token) {
             setLogined(false);
-            alert("로그인 실패");
             return;
         }
-        const Userinfo = localStorage.getItem("userInfo");
-        if (Userinfo) {
-            setUser(JSON.parse(Userinfo));
-        }
         // 구글로그인과 로컬 로그인할떄 data정보 충돌문제
+
+        if (logined === true) {
+            const User = JSON.parse(localStorage.getItem("userInfo"));
+            setName(User.name);
+        }
 
         axios.get("/mypage", {
             headers: {
@@ -37,9 +40,6 @@ function Right() {
                 console.log("mypage response:", res.data);
                 setDatas(res.data.data);
                 setLogined(true);
-                if (Userinfo === null) {
-                    setUser(res.data.user);
-                }
             })
             .catch((error) => {
                 setLogined(true);
@@ -107,6 +107,9 @@ function Right() {
         setLogined(false);
     }
 
+
+
+
     return (
         logined ?
             <div className="Logined-profile">
@@ -126,11 +129,11 @@ function Right() {
                     alt="profile"
                 />
                 {/* <p>{username}</p> */}
-                <p>임청명</p>
+                <p>{name}</p>
                 <button onClick={handleLogout}>Logout</button>
-                {/* <div className="Bookmark">
+                <div className="Bookmark">
 
-            </div> */}
+                </div>
             </div> :
             <div className="profile-div">
                 <img src={Mainicon} alt="Main Icon" />
