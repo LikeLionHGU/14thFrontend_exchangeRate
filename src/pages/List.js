@@ -46,20 +46,13 @@ function List() {
                   todayExchange.DATA_VALUE -
                     yesterdayExchange[index].DATA_VALUE,
                 ).toFixed(2) == 0.0 ? (
-                  <h3>
-                    ➖
-                    {parseFloat(
-                      todayExchange.DATA_VALUE -
-                        yesterdayExchange[index].DATA_VALUE,
-                    ).toFixed(2)}
-                    원
-                  </h3>
+                  <h3>➖ 0원</h3>
                 ) : parseFloat(
                     todayExchange.DATA_VALUE -
                       yesterdayExchange[index].DATA_VALUE,
                   ).toFixed(2) >= 0.0 ? (
                   <h3 style={{ color: "red" }}>
-                    🔺
+                    ▲{" "}
                     {parseFloat(
                       todayExchange.DATA_VALUE -
                         yesterdayExchange[index].DATA_VALUE,
@@ -68,7 +61,7 @@ function List() {
                   </h3>
                 ) : (
                   <h3 style={{ color: "blue" }}>
-                    🔻
+                    ▼{" "}
                     {parseFloat(
                       todayExchange.DATA_VALUE -
                         yesterdayExchange[index].DATA_VALUE,
