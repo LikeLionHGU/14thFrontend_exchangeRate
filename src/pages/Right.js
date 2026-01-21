@@ -10,7 +10,7 @@ function Right() {
     const [logined, setLogined] = useState(false);
     const [data, setDatas] = useState(null);
     const [name, setName] = useState(null);
-    const [profile, setProfile] = useState(null);
+    const [picture, setPicture] = useState(null);
 
 
 
@@ -28,6 +28,7 @@ function Right() {
         if (logined === true) {
             const User = JSON.parse(localStorage.getItem("userInfo"));
             setName(User.name);
+            setPicture(User.picture);
         }
 
         axios.get("/mypage", {
@@ -107,6 +108,7 @@ function Right() {
         setLogined(false);
     }
 
+    console.log(picture);
 
 
 
@@ -125,7 +127,7 @@ function Right() {
                 />
             )} */}
                 <img
-                    src={Profile}
+                    src={picture}
                     alt="profile"
                 />
                 {/* <p>{username}</p> */}
