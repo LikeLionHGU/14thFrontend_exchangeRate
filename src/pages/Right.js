@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Profile from "../asset/profile-picture.png"
 import Mainicon from "../asset/MainIcon.png";
+import GoogleLogin from "../components/loginPage";
 
 import LoginPage from "./LoginPage";
 import RegisterPage from "./RegisterPage";
@@ -11,14 +12,10 @@ function Right() {
     const [data, setDatas] = useState(null);
     const [name, setName] = useState(null);
     const [picture, setPicture] = useState(null);
-    const [register,setRegister]= useState(false);
-
-
-
+    const [register, setRegister] = useState(false);
 
     useEffect(() => {
         const token = localStorage.getItem("accessToken");
-
 
         if (!token) {
             setLogined(false);
@@ -55,12 +52,24 @@ function Right() {
 
     }, []);
 
+
     function handleLogout() {
         localStorage.removeItem('accessToken');
         localStorage.removeItem('userInfo');
         setLogined(false);
     }
 
+    const [text_Register, setText_Register] = useState("Register");
+    function handleRegister(){
+        
+        if(text_Register==="Register"){
+            setText_Register("Cancel");
+            setRegister(true);
+        }else{
+            setText_Register("Register");
+            setRegister(false);
+        }
+    }
 
     return (
         logined ?
@@ -80,9 +89,10 @@ function Right() {
                 {!register ? (
                     <LoginPage />
                 ) : (
-                    <div></div>
-                    // <RegisterPage />
+                    <RegisterPage />
                 )}
+                <p value={text_Register} onClick={handleRegister}>Register</p>
+                <GoogleLogin />
             </div>
     );
 

@@ -1,4 +1,3 @@
-import GoogleLogin from "../components/loginPage";
 import Login from "../components/Login";
 import { useState } from "react";
 import axios from "axios";
@@ -41,15 +40,16 @@ function LoginPage() {
             console.error(error);
         }
     }
+    function handleRegister(){
+        
+    }
     return (
         <div>
             <form onSubmit={handleLogin}>
                 <input placeholder="Username" />
                 <input placeholder="Password" type="password" />
                 <button type="submit">Login</button>
-                <p >Register</p>
             </form>
-            <GoogleLogin />
         </div>
     );
 }

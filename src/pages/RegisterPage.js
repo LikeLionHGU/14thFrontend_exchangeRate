@@ -58,7 +58,6 @@ function RegisterPage() {
                     onChange={(e) => setPasswordCheck(e.target.value)}
                 />
                 <button type="submit">Register</button>
-                <p>cancel</p>
             </form>
         </div>
     );
