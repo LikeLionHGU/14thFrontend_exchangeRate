@@ -7,6 +7,11 @@ function LoginedPageTest() {
     //     `${process.env.REACT_APP_HOST_URL}/bookmark`,
     //     { code }
     // );
+
+    function handleLogout(){
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('userInfo');
+    }
     return (
         <div className="Logined-profile">
             <img
@@ -14,10 +19,12 @@ function LoginedPageTest() {
                 alt="profile"
             />
             <p>청명</p>
+            <button onClick={handleLogout}>Logout</button>
             <div className="Bookmark">
-
             </div>
         </div>
+
+        
 
     );
 } export default LoginedPageTest;

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import sendAccessTokenToBackend from "../../apis/sendAccessTokenToBackend";
+import sendAccessTokenToBackend from "../apis/sendAccessTokenToBackend";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
@@ -12,7 +12,6 @@ const Loading = () => {
         // URL에서 authorization code 추출
         const parsedQuery = new URLSearchParams(window.location.search);
         const code = parsedQuery.get("code");
-
         console.log("Authorization code:", code);
 
         // code가 없으면 에러 처리
@@ -23,14 +22,14 @@ const Loading = () => {
         }
 
         // 백엔드로 authorization code 전송
-        await sendAccessTokenToBackend(code);
+       const data=  await sendAccessTokenToBackend(code);
+       localStorage.setItem("accessToken", data.token);
         console.log("성공");
         // 성공 시 테스트 페이지로 이동
         navigate("/");
         
       } catch (error) {
         console.error("로그인 과정에서 에러가 발생했습니다.", error);
-        alert("로그인에 실패했습니다. 다시 시도해주세요.");
       }
     };
 

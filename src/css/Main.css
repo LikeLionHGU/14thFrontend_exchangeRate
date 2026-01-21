@@ -82,9 +82,10 @@ p {
     border-radius: 5%;
 }
 
-.profile-div{
+.profile-div {
     padding: 0 16px;
 }
+
 .profile-div img {
     margin-bottom: 5%;
     width: 50%;
@@ -115,7 +116,40 @@ p {
 .Login-div form input {
     width: 100;
 }
-.gap{
+
+.gap {
     margin-top: 200px;
     margin-bottom: 200px;
+}
+
+.calculator-box {
+    width: 600px;
+    background: white;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.calculator-box h2 {
+    margin-bottom: 15px;
+}
+
+.calculator-box select,
+.calculator-box input,
+.calculator-box button {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.xx{
+    display: flex;;
+}
+.xx button{
+    width: 300px;
+    height:auto;
+}
+.xx input{
+    width:400px;
 }

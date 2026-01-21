@@ -1,4 +1,4 @@
-import GoogleLogin from "../components/0116/loginPage";
+import GoogleLogin from "../components/loginPage";
 import "../css/Main.css";
 import { useState } from "react";
 import registerUser from "../components/Register";

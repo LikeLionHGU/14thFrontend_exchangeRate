@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import "../css/Main.css";
+import "../css/Calculator.module.css";
+
 function Calculator() {
 
   const today = new Date();
@@ -30,26 +32,26 @@ function Calculator() {
 
   //환율 이름 불러오기 
   const selectedRateInfo = exchangeRateList.find(
-  (item) => item.ITEM_CODE1 === selectedItemCode);
+    (item) => item.ITEM_CODE1 === selectedItemCode);
 
 
   //엔화 환율 보정함수
   const getAdjustedRate = () => {
-  if (!currentExchangeRate) return null;
+    if (!currentExchangeRate) return null;
 
-  // 엔화 선택시 100으로 나눔
-  if (
-  selectedItemCode === "0000002" ||
-  selectedItemCode === "0000029" ||
-  selectedItemCode === "0000035"
-) {
-    return currentExchangeRate / 100;
-  }
-  return currentExchangeRate;
-};
+    // 엔화 선택시 100으로 나눔
+    if (
+      selectedItemCode === "0000002" ||
+      selectedItemCode === "0000029" ||
+      selectedItemCode === "0000035"
+    ) {
+      return currentExchangeRate / 100;
+    }
+    return currentExchangeRate;
+  };
 
 
-  
+
 
   useEffect(() => {
     fetch(
@@ -88,7 +90,7 @@ function Calculator() {
     //입력값 초기화
     setKrwAmount("");
     setForeignCurrencyAmount("");
-    
+
   };
 
   // 원화 입력 부분
@@ -112,7 +114,7 @@ function Calculator() {
 
     const adjustedRate = getAdjustedRate();
 
-    if ( adjustedRate !== null) {
+    if (adjustedRate !== null) {
       setKrwAmount(
         (value * adjustedRate).toFixed(0)
       );
@@ -129,12 +131,12 @@ function Calculator() {
 
   };
 
-  
+
   return (
     <div className="calculator-box gap">
-      <h2>환율 계산기</h2>
+      <h2>환율 변환</h2>
 
-      
+
       <select
         onChange={handleCurrencyChange}
         value={selectedItemCode || ""}
@@ -155,21 +157,23 @@ function Calculator() {
         <>
           {exchangeDirection === "KRW_TO_FOREIGN" ? (
             <>
-              <input
-                type="number"
-                placeholder="원화 (KRW)"
-                value={krwAmount}
-                onChange={handleKrwChange}
-              />
-
-              <button onClick={handleDirectionChange}>⇅</button>
-
-              <input
-                type="number"
-                placeholder="외화"
-                value={foreignCurrencyAmount}
-                readOnly
-              />
+              <div className="xx">
+                <div>
+                  <input
+                    type="number"
+                    placeholder="원화 (KRW)"
+                    value={krwAmount}
+                    onChange={handleKrwChange}
+                  />
+                  <input
+                    type="number"
+                    placeholder="외화"
+                    value={foreignCurrencyAmount}
+                    readOnly
+                  />
+                </div>
+                <button onClick={handleDirectionChange}>⇅</button>
+              </div>
             </>
           ) : (
             <>

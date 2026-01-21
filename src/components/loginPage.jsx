@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import GoogleLoginBtn from "../../asset/GoogleLoginBtn.svg";
+import GoogleLoginBtn from "../asset/GoogleLoginBtn.svg";
 
 const GoogleLogin = () => {
   const handleGoogleLogin = () => {
