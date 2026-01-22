@@ -36,9 +36,7 @@ function LoginPage() {
       if (token2) {
         // eslint-disable-next-line no-restricted-globals
         location.reload(true);
-      } else {
-        alert("login 실패");
-      }
+      } 
     } catch {
       alert("login 실패");
     }
