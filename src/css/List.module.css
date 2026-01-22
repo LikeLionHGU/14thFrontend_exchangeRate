@@ -4,10 +4,12 @@
   text-align: center;
 
   padding-top: 50px;
-  
-  h3{
+
+  h3 {
     margin-left: 70px;
+    color: white;
     text-align: left;
+
   }
 }
 
@@ -24,20 +26,16 @@
   padding-left: 50px;
   padding-right: 50px;
 
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    black 10%,
-    black 90%,
-    transparent
-  );
-  mask-image: linear-gradient(
-    to bottom,
-    transparent,
-    black 10%,
-    black 90%,
-    transparent
-  );
+  -webkit-mask-image: linear-gradient(to bottom,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent);
+  mask-image: linear-gradient(to bottom,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent);
 }
 
 .exchangeListMain::-webkit-scrollbar {
@@ -57,12 +55,10 @@
   border-radius: 5%;
 
   box-shadow: 0px 0px 5px 3px gray;
-
   h2 {
     margin-top: 15%;
     height: 30px;
   }
-
   p {
     font-size: 25px;
   }

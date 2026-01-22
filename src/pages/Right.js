@@ -3,7 +3,6 @@ import axios from "axios";
 import Profile from "../asset/profile-picture.png";
 import Mainicon from "../asset/MainIcon.png";
 import GoogleLogin from "../components/loginPage";
-
 import LoginPage from "./LoginPage";
 import RegisterPage from "./RegisterPage";
 
@@ -26,11 +25,14 @@ function Right() {
       setName(User.name);
       setPicture(User.picture);
     }
-    // 구글로그인과 로컬 로그인할떄 data정보 충돌문제
-    axios.get("/mypage", {
+
+    axios.get(`${process.env.REACT_APP_HOST_URL}/mypage`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
+    }).catch((error) => {
+      console.error("마이페이지 정보 가져오기 실패:", error);
+
     });
   }, []);
 

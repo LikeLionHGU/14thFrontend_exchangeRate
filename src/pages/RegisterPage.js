@@ -2,13 +2,13 @@ import { useState } from "react";
 import axios from "axios";
 
 function RegisterPage() {
-    
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [passwordCheck, setPasswordCheck] = useState("");
     const [name, setName] = useState("");
 
-        const handleRegisterSubmit = async (e) => {
+    const handleRegisterSubmit = async (e) => {
         e.preventDefault();
         if (password !== passwordCheck) {
             alert("비밀번호가 일치하지 않습니다.");
@@ -44,21 +44,25 @@ function RegisterPage() {
                 <input
                     placeholder="Username / e-mail"
                     value={username}
+                    required
                     onChange={(e) => setUsername(e.target.value)}
                 />
                 <input
+                    required
                     placeholder="Password"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <input
+                    required
                     placeholder="Enter Password Again"
                     type="password"
                     value={passwordCheck}
                     onChange={(e) => setPasswordCheck(e.target.value)}
                 />
-                 <input
+                <input
+                    required
                     placeholder="Name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
