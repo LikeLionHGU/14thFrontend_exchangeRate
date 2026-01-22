@@ -15,30 +15,25 @@ function LoginPage() {
     );
 
     localStorage.setItem("token", response.data.token);
-    localStorage.setItem("name", response.data.user.name);
-    localStorage.setItem("picture", response.data.user.picture);
+    localStorage.setItem("userInfo", JSON.stringify(response.data.user));
   }
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-//   function handleUsername() {
-//     const id = document.getElementById("id").value;
-//     setUsername(id);
-//   }
-//   function handlePassword() {
-//     const pw = document.getElementById("pw").value;
-//     setPassword(pw);
-//   }
+  function handleUsername() {
+    setUsername(document.getElementById("id").value);
+  }
+  function handlePassword() {
+    setPassword(document.getElementById("pw").value);
+  }
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    setUsername(document.getElementById("id").value);
-    setPassword(document.getElementById("pw").value);
+    //setUsername(document.getElementById("id").value);
+    //setPassword(document.getElementById("pw").value);
 
-    //handleUsername();
-    //handlePassword();
     try {
       if (username === "") {
         alert("아이디를 입력하세요!");
@@ -51,15 +46,20 @@ function LoginPage() {
     const token2 = localStorage.getItem("token");
 
     if (token2) {
-        // eslint-disable-next-line no-restricted-globals
+      // eslint-disable-next-line no-restricted-globals
       location.reload(true);
     }
   };
   return (
     <div>
       <form onSubmit={handleLogin}>
-        <input id="id" placeholder="Username" />
-        <input id="pw" placeholder="Password" type="password" />
+        <input id="id" onChange={handleUsername} placeholder="Username" />
+        <input
+          id="pw"
+          onChange={handlePassword}
+          placeholder="Password"
+          type="password"
+        />
         <button type="submit">Login</button>
       </form>
     </div>

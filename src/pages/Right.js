@@ -52,7 +52,7 @@ function Right() {
 
 
     function handleLogout() {
-        localStorage.removeItem('accessToken');
+        localStorage.removeItem('token');
         localStorage.removeItem('userInfo');
         setLogined(false);
     }
@@ -84,10 +84,7 @@ function Right() {
     return (
         logined ?
             <div className="Logined-profile">
-                <img
-                    src={picture}
-                    alt="profile"
-                />
+                {picture==null ? (<img src={Profile}alt="profile"/>) : (<img src={picture}alt="profile"/>)}
                 <p>{name}</p>
                 <button onClick={handleLogout}>Logout</button>
                 <div className="Bookmark">
