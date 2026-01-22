@@ -1,73 +1,77 @@
-import { useEffect, useState } from "react";
-import PropTypes from "prop-types";
+import { useState } from "react"
+import styles from "../css/Calculator.module.css";
 
 function Calculator({ data }) {
-  const [first, setfirst] = useState("first");
-  const [second, setsecond] = useState("second");
-  const [flipped, setFlipped] = useState(false);
-  const [isFirst, setIsfirst] = useState(true);
-  const [F, setF] = useState();
-  const [S, setS] = useState();
-  console.log(data);
-  const info = Object.entries(data);
-  console.log(info);
+  const [amount, setAmount] = useState(1);
+  const [from, setFrom] = useState("USD");
+  const [to, setTo] = useState("KRW");
+  const [flipped, setFlipped] = useState(true);
 
-  function Transfer() {
+  if (!data) return null;
 
-    if (isFirst == true) {
-      setIsfirst(false);
-    } else {
-      setIsfirst(true);
-    }
-    setFlipped((current) => !current);
-  }
+  const result = ((amount / data[from]) * data[to]).toFixed(2);
 
-  function handleInput() {
-    if (isFirst == true) {
-      setfirst(document.getElementById("first").value);
-      setsecond()
-    } else {
-      setsecond(document.getElementById("second").value);
-    }
-
-  }
-  function Calculate() {
-
-    const Fselect = document.getElementById("first");
-    const SFselect = document.getElementById("second");
-
-    console.log(Fselect);
-    console.log(SFselect);
-  }
-  function handleOption(){
-    setF(parseFloat(document.getElementById("first-select").value.substring(5)));
-    setS(parseFloat(document.getElementById("second-select").value.substring(5)));
-        console.log(F);
-    console.log(S);
+  function handleFlipped() {
+    setFlipped(current => !current);
   }
   return (
-    <div>
+    flipped ? (
       <div>
         <div>
-          <select id="first-select"onChange={handleOption}>
-            <option>화페 선택</option>
-            {info.map(([code, value]) => (
-              <option key={code}>{code} : {value}</option>
+          <select value={from} onChange={(e) => setFrom(e.target.value)}>
+            {Object.entries(data).map(([code, value]) => (
+              <option key={code} value={code}>
+                {code}
+              </option>
             ))}
           </select>
-          <input type="number" onChange={handleInput} disable={!flipped} id={first} value={first}></input>
+          <input
+            type="number"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+          />
         </div>
         <div>
-          <select id="second-select" onChange={handleOption}>
-            {info.map(([code, value]) => (
-              <option key={code}>{code} : {value}</option>
-            ))}</select>
-          <input type="number" onChange={handleInput} disable={flipped} id={second} value={second}></input>
+          <select value={to} onChange={(e) => setTo(e.target.value)}>
+            {Object.entries(data).map(([code, value]) => (
+              <option key={code} value={code}>
+                {code}
+              </option>
+            ))}
+          </select>
+          <input type="number" value={result} readOnly />
         </div>
+        <button onClick={handleFlipped} />
       </div>
-      <button onClick={Transfer} />
-    </div>
+    ) : (<div>
+      <div>
+        <select value={to} onChange={(e) => setTo(e.target.value)}>
+          {Object.entries(data).map(([code, value]) => (
+            <option key={code} value={code}>
+              {code}
+            </option>
+          ))}
+        </select>
+        <input type="number" value={result} readOnly />
+      </div>
+      <div>
+        <select value={from} onChange={(e) => setFrom(e.target.value)}>
+          {Object.entries(data).map(([code, value]) => (
+            <option key={code} value={code}>
+              {code}
+            </option>
+          ))}
+        </select>
+        <input
+          type="number"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+        />
+      </div>
+
+      <button className={styles.button} onClick={handleFlipped} />
+    </div>)
+
   );
 }
-
 export default Calculator;
