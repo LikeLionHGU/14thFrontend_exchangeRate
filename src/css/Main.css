@@ -1,144 +1,99 @@
 .layout {
-  width: 100%;
-  display: flex;
-  height: 100vh;
-}
-
-.panel {
-  width: 20%;
-  background-color: #1b243e;
+    width: 100%;
+    display: flex;
+    height: 100vh;
 }
 
 .left {
-  width: 80%;
-  background-color: white;
+    width: 80%;
+    background-color: #1b243e;
 }
 
 .right {
-  width: 20%;
-  position: sticky;
-  top: 0;
-  background-color: #278be7;
-  text-align: center;
-  padding-top: 5%;
+    width: 20%;
+    position: sticky;
+    top: 0;
+    background-color: #f7f7f7;
+    text-align: center;
+    padding-top: 5%;
 }
-
 .right img {
-  width: 80px;
-  height: auto;
+    width: 50%;
+    height: auto;
+    margin-bottom: 5%;
 }
-
+.profile-div img {
+    margin-bottom: 5%;
+    width: 50%;
+    height: 50%;
+}
 html,
 body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 .Msub-div {
-  width: 100%;
-  height: auto;
-  text-align: center;
-  margin-top: 30px;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin-top: 30px;
 }
 
 form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
 }
 
 input {
-  height: 44px;
-  margin-bottom: 14px;
-  padding: 0 12px;
-  font-size: 14px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
+    height: 44px;
+    margin-bottom: 14px;
+    padding: 0 12px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
 }
 
 button {
-  height: 44px;
-  background-color: #1b243e;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
+    height: 35px;
+    background-color: #1b243e;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom:10px;
 }
 
 p {
-  font-size: 15px;
-}
-
-.list {
-  text-align: center;
-
-  width: 100%;
-  height: auto;
-  border: 3px solid navy;
-  border-radius: 5%;
+    font-size: 15px;
 }
 
 .profile-div {
-  padding: 0 16px;
+    padding: 0 16px;
 }
 
-.profile-div img {
-  margin-bottom: 5%;
-  width: 50%;
-  height: 50%;
-}
+
 
 .Logined-profile img {
-  width: 50%;
-  height: 50%;
-  border-radius: 50%;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
 }
 
 .Logined-profile p {
-  font-weight: bolder;
-  font-size: 20px;
-}
-
-.Bookmark {
-  background-color: #f0f1f4;
-  height: 500px;
-  margin: 0 40px;
-}
-
-.Bookmark ul {
-  list-style: none;
-  float: left;
+    font-weight: bolder;
+    font-size: 20px;
 }
 
 .Login-div form input {
-  width: 100;
+    width: 100;
 }
 
 .gap {
-  margin-top: 150px;
-  margin-bottom: 200px;
-}
-
-.calculator-box {
-  width: 600px;
-  background: white;
-  margin: 50px auto;
-  padding: 20px;
-  text-align: center;
-  border-radius: 10px;
-}
-
-.calculator-box h2 {
-  margin-bottom: 15px;
-}
-
-.calculator-box select,
-.calculator-box input,
-.calculator-box button {
-  width: 100%;
-  height: 40px;
-  margin-bottom: 10px;
+    margin-top: 100px;
+    margin-bottom: 10px;
 }

@@ -9,6 +9,7 @@ function List({ data }) {
   return (
     <div>
       <div className={styles.list}>
+        <h3>실시간 환율</h3>
         <div className={styles.exchangeListMain}>
           {list.map((list) => (
             <div className={styles.exchangeListBox} key={list[0]}>

@@ -1,7 +1,6 @@
 import List from "./List";
 import Calculator from "./Calculator";
 import "../css/Main.css";
-import axios from "axios";
 import { useEffect, useState } from "react";
 
 function Left() {

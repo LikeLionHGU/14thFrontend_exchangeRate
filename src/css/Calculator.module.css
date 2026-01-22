@@ -1,24 +1,41 @@
 .button {
     width: 100px;
-    height: 100px;
-    background-color: rgb(48, 63, 63);
+    height: 160px;
+    background-color: #1b243e;
+    color:white;
+    font-size: 20px;
 }
-
-
 
 .CalMaindiv {
-    width: 600px;
-    background: white;
+    width: 500px;
+    height: 300px;
+    background: rgb(255, 255, 255);
     margin: 50px auto;
     padding: 20px;
-    text-align: center;
     border-radius: 10px;
-    margin:0,20px;
-}
 
-.Caldiv {
     display: flex;
+    align-items: center;
+    border-radius: 5%;
+}
+.Caldiv {
     width: 100%;
-    height: auto;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 20px;         
+}
+.subdiv {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+.Form{
+    height:70px;
+    width:80px;
+    font-size: 20px;
+}
+.in{
+    height:63px;
 }

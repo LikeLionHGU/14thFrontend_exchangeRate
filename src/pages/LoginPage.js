@@ -1,10 +1,7 @@
-import GoogleLogin from "../components/loginPage";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
-  const navigate = useNavigate();
   async function LoginSubmit() {
     const response = await axios.post(
       `${process.env.REACT_APP_HOST_URL}/Login`,
@@ -31,30 +28,27 @@ function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    //setUsername(document.getElementById("id").value);
-    //setPassword(document.getElementById("pw").value);
-
     try {
-      if (username === "") {
-        alert("아이디를 입력하세요!");
-      }
-    } catch (error) {
-      alert("로그인 실패");
-      //console.error(error);
-    }
-    LoginSubmit();
-    const token2 = localStorage.getItem("token");
+      LoginSubmit();
+      const token2 = localStorage.getItem("token");
 
-    if (token2) {
-      // eslint-disable-next-line no-restricted-globals
-      location.reload(true);
+
+      if (token2) {
+        // eslint-disable-next-line no-restricted-globals
+        location.reload(true);
+      } else {
+        alert("login 실패");
+      }
+    } catch {
+      alert("login 실패");
     }
+
   };
   return (
     <div>
       <form onSubmit={handleLogin}>
-        <input id="id" onChange={handleUsername} placeholder="Username" />
-        <input
+        <input required id="id" onChange={handleUsername} placeholder="Username / e-mail" />
+        <input required
           id="pw"
           onChange={handlePassword}
           placeholder="Password"
