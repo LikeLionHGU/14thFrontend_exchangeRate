@@ -20,9 +20,6 @@ function List() {
         `https://api.allorigins.win/raw?url=https://ecos.bok.or.kr/api/StatisticSearch/GZOJK8A2NI5BBV6E0NIU/json/kr/1/43/731Y001/D/20260119/20260119`,
       )
     ).json();
-    setTodayExchange(json1.StatisticSearch.row);
-    setYesterdayExchange(json2.StatisticSearch.row);
-    setLoading(false);
   };
   useEffect(() => {
     getExchange();
