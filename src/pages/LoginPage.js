@@ -15,8 +15,7 @@ function LoginPage() {
     );
 
     localStorage.setItem("token", response.data.token);
-    localStorage.setItem("name", response.data.user.name);
-    localStorage.setItem("picture", response.data.user.picture);
+    localStorage.setItem("userInfo", JSON.stringify(response.data.user));
   }
 
   const [username, setUsername] = useState("");
