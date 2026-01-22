@@ -23,7 +23,7 @@ const Loading = () => {
 
         // 백엔드로 authorization code 전송
        const data=  await sendAccessTokenToBackend(code);
-       localStorage.setItem("accessToken", data.token);
+       localStorage.setItem("token", data.token);
         console.log("성공");
         // 성공 시 테스트 페이지로 이동
         navigate("/");

@@ -13,22 +13,21 @@ function Right() {
     const [name, setName] = useState(null);
     const [picture, setPicture] = useState(null);
     const [register, setRegister] = useState(false);
+    const [text_Register, setText_Register] = useState("Register");
 
     useEffect(() => {
-        const token = localStorage.getItem("accessToken");
-
+        const token = localStorage.getItem("token");
         if (!token) {
             setLogined(false);
             return;
         }
-        // 구글로그인과 로컬 로그인할떄 data정보 충돌문제
-
-        if (logined === true) {
+        setLogined(true);
+        if (token) {
             const User = JSON.parse(localStorage.getItem("userInfo"));
             setName(User.name);
             setPicture(User.picture);
         }
-
+        // 구글로그인과 로컬 로그인할떄 data정보 충돌문제
         axios.get("/mypage", {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -38,10 +37,9 @@ function Right() {
                 console.log(res);
                 console.log("mypage response:", res.data);
                 setDatas(res.data.data);
-                setLogined(true);
             })
             .catch((error) => {
-                setLogined(true);
+                // setLogined(true);
                 // console.log(error);
                 // setLogined(false);
                 // setDatas(null);
@@ -49,8 +47,8 @@ function Right() {
                 // localStorage.removeItem("accessToken");
                 // localStorage.removeItem("userInfo");
             });
-
     }, []);
+
 
 
     function handleLogout() {
@@ -59,17 +57,29 @@ function Right() {
         setLogined(false);
     }
 
-    const [text_Register, setText_Register] = useState("Register");
-    function handleRegister(){
-        
-        if(text_Register==="Register"){
-            setText_Register("Cancel");
+
+    function handleRegister() {
+        if (text_Register === "Register") {
+
             setRegister(true);
-        }else{
-            setText_Register("Register");
+            setText_Register("Cancel");
+        } else {
+
             setRegister(false);
+            setText_Register("Register");
         }
     }
+
+    // function UploadPicture() {
+    //     const response = await axios.post(
+    //         `${process.env.REACT_APP_HOST_URL}/Login`,
+    //         {
+    //             username,
+    //             password,
+    //         }
+    //     );
+    // }
+    // }
 
     return (
         logined ?
@@ -81,9 +91,9 @@ function Right() {
                 <p>{name}</p>
                 <button onClick={handleLogout}>Logout</button>
                 <div className="Bookmark">
-
                 </div>
-            </div> :
+            </div> 
+            :
             <div className="profile-div">
                 <img src={Mainicon} alt="Main Icon" />
                 {!register ? (
@@ -91,7 +101,7 @@ function Right() {
                 ) : (
                     <RegisterPage />
                 )}
-                <p value={text_Register} onClick={handleRegister}>Register</p>
+                <p onClick={handleRegister}>{text_Register}</p>
                 <GoogleLogin />
             </div>
     );

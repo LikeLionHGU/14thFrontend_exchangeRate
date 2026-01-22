@@ -15,7 +15,7 @@ const sendAccessTokenToBackend = async (code) => {
 
     // 토큰 저장 (백엔드가 token을 반환하는 경우)
     if (response.data.token) {
-      localStorage.setItem("accessToken", response.data.token);
+      localStorage.setItem("token", response.data.token);
       console.log("토큰 저장 완료!");
     }
     console.log(response.data.token);
