@@ -26,7 +26,7 @@ function Left() {
         <div className="Msub-div">
             <div className="gap">
                 <Calculator data={data}/>
-                {/* <List /> */}
+                <List data={data}/>
             </div>
         </div >
     );
