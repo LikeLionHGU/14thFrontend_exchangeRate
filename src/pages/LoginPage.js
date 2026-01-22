@@ -61,9 +61,7 @@ function LoginPage() {
         <input id="id" placeholder="Username" />
         <input id="pw" placeholder="Password" type="password" />
         <button type="submit">Login</button>
-        <p>Register</p>
       </form>
-      <GoogleLogin />
     </div>
   );
 }
