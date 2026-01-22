@@ -42,7 +42,7 @@ function RegisterPage() {
         <div>
             <form onSubmit={handleRegisterSubmit}>
                 <input
-                    placeholder="Username"
+                    placeholder="Username / e-mail"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                 />

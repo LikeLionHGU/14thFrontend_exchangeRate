@@ -1,10 +1,7 @@
-import GoogleLogin from "../components/loginPage";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
-  const navigate = useNavigate();
   async function LoginSubmit() {
     const response = await axios.post(
       `${process.env.REACT_APP_HOST_URL}/Login`,
@@ -53,7 +50,7 @@ function LoginPage() {
   return (
     <div>
       <form onSubmit={handleLogin}>
-        <input id="id" onChange={handleUsername} placeholder="Username" />
+        <input id="id" onChange={handleUsername} placeholder="Username / e-mail" />
         <input
           id="pw"
           onChange={handlePassword}
