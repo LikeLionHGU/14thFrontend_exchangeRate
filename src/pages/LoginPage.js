@@ -27,7 +27,7 @@ function LoginPage() {
     e.preventDefault();
 
     try {
-      LoginSubmit();
+      await LoginSubmit();
       const token2 = localStorage.getItem("token");
 
 
