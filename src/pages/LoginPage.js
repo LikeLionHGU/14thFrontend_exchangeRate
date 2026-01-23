@@ -10,11 +10,9 @@ function LoginPage() {
         password,
       },
     );
-
     localStorage.setItem("token", response.data.token);
     localStorage.setItem("userInfo", JSON.stringify(response.data.user));
   }
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
