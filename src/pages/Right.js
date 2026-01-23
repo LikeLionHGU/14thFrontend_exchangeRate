@@ -26,7 +26,7 @@ function Right() {
       setPicture(User.picture);
     }
     // 구글로그인과 로컬 로그인할떄 data정보 충돌문제
-    axios.get("/mypage", {
+    axios.get(`${process.env.REACT_APP_HOST_URL}/mypage`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
